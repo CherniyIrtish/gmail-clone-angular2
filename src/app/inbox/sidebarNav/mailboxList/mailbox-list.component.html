@@ -1,0 +1,7 @@
+<ul class="inbox-sections list-unstyled">
+    <li *ngFor="let mailbox of mailboxes" 
+                (click) = "onMailbox(mailbox._id, mailbox.title)">
+        {{mailbox.title}}
+        <a class="close">&times;</a>
+    </li>
+</ul>

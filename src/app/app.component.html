@@ -1,0 +1,49 @@
+<header class="row">
+    <div class="logo col-sm-2">
+        <img src="app/images/google.png" alt="Google">
+    </div><!-- logo -->
+
+    <div class="search-bar col-sm-6">
+        <div class="input-group">
+            <input [(ngModel)]= 'search' 
+                    type="text" class="form-control" 
+                    placeholder="Search for...">
+        </div><!-- /input-group -->
+    </div><!-- search-bar -->
+
+    <div class="profile col-sm-4">
+        <ul class="profile-icons list-inline pull-right">
+            <li>
+                <div>Vitaliy Makogon</div>
+            </li>
+            <li>
+                <img src="app/images/profile.jpg" class="img-circle">
+            </li>
+        </ul>
+    </div><!-- profile -->
+</header>
+
+<div class="control-bar row">
+    <drop-down></drop-down>
+
+    <div class="controls col-sm-10">
+        <ul class="control-list list-inline">
+            <li>
+                <button class="btn btn-control">
+                    <input type="checkbox" class="mail-select">
+                </button>
+            </li>
+            <li>
+                <button class="btn btn-control">
+                    <span class="glyphicon glyphicon-repeat"></span>
+                </button>
+            </li>
+            <li>
+                <button class="btn btn-control" title="Delete">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </li>
+        </ul>
+    </div><!-- controls -->
+</div><!-- control-bar -->
+<inbox [search] = "search"></inbox>

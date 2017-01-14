@@ -1,0 +1,21 @@
+<div class = "email-item row unread" *ngIf = "toggleMail">
+  <div class="check" col-sm-1>
+    <input type="checkbox" class="mail-select">
+  </div>
+  <div class="people col-sm-2" (click) = "onMail(mail._id)">
+    <span class="people-names">
+            {{mail.to}}
+        </span>
+  </div>
+
+  <div class="message col-sm-7" (click) = "onMail(mail._id)">
+    <div class="clipper">
+      <h3>{{mail.subject}}</h3>
+      -
+      <p>{{mail.body}}</p>
+      <!-- | limitTo:100 -->
+    </div>
+  </div>
+</div>
+
+<!--<opened [mail]=mail *ngIf = "mail._id == mailId"></opened>-->
