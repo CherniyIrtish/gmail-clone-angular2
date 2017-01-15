@@ -1,22 +1,24 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OpenedService } from './opened.service';
 
 @Component({
   selector: 'opened',
-  templateUrl: './opened.component.html'
+  templateUrl: './opened.component.html',
+  providers: [OpenedService]
 })
-export class OpenedComponent implements OnInit{
-  @Input() mail: any;
+export class OpenedComponent implements OnInit {
+  public mail: any = {};
 
-  constructor(private route: ActivatedRoute) { }
-  
+  constructor(private route: ActivatedRoute,
+              private openedService: OpenedService) { }
+
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      console.log(params);
+      this.openedService.getMailById(params['id'])
+        .subscribe((mail) => {
+          this.mail = mail;
+        });
     });
-
-    // this.route.data.pluck('id').subscribe((id) => {
-    //   console.log(id);
-    // })
   }
 }

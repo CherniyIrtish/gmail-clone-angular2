@@ -3,22 +3,16 @@
         <button class="compose btn btn-danger" (click)="onCompose()">
             Compose
         </button>
-        <sidebar-nav (activeMailbox)="onMailboxSelected($event)" (activeItemNav)="onItemNavSelected($event)">
+        <sidebar-nav (activeMailbox)="onMailboxSelected($event)" 
+                     (activeItemNav)="onItemNavSelected($event)">
         </sidebar-nav>
     </div>
 
-    <compose [activeMailbox]="activeMailbox" [showCompose]="showCompose" (onClose)="onClose($event)">
+    <compose [showCompose]="showCompose" 
+             (onClose)="onClose($event)">
     </compose>
 
     <div class="inbox col-sm-10">
-        <ul class="list-unstyled">
-            <li *ngFor="let mail of mails | async | filterSearch: search">
-                <router-outlet></router-outlet>
-                <!--<mail [mail]=mail 
-                      [toggleMail]=toggleMail 
-                      (onMailSelected)="onMailSelected($event)">
-                </mail>-->
-            </li>
-        </ul>
+        <router-outlet></router-outlet>
     </div>
 </div>

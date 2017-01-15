@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { MailboxService } from './mailbox.service';
+import { MailboxService } from './../../mailbox.service';
 
 @Component({
     selector: 'mailbox-list',

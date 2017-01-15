@@ -1,14 +1,13 @@
 import { CONFIG } from 'app/configs/config';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 
 @Injectable()
-export class MailboxService {
+export class OpenedService {
   constructor(private http: Http) { }
 
-  getAll() {
-    return this.http.get(CONFIG.apiBaseUrl + 'mailboxes')
+  getMailById(id: string) {
+    return this.http.get(`${CONFIG.apiBaseUrl}letters/${id}`)
       .map(response => response.json())
   }
 }

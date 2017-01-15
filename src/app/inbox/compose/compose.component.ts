@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { ComposeService } from './compose.service';
+import { MailboxService } from './../mailbox.service';
 
 @Component({
     selector: 'compose',
@@ -8,10 +9,19 @@ import { ComposeService } from './compose.service';
 })
 export class ComposeComponent {
     @Input() showCompose: boolean;
-    @Input() activeMailbox: string[];
     @Output() onClose = new EventEmitter<Object>();
 
-    constructor(private composeService: ComposeService) { }
+    activeMailbox: string[];
+
+    constructor(private composeService: ComposeService,
+                private mailboxService: MailboxService) { }
+
+    ngOnInit() {
+        this.mailboxService.getSubject()
+        .subscribe(activeMailbox => {
+            this.activeMailbox = activeMailbox;
+        });
+    }
 
     onSubmit(mail) {
         this.composeService.send(this.convertToTransferObj(mail, this.activeMailbox[0]))

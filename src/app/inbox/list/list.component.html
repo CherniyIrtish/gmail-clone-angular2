@@ -1,0 +1,5 @@
+<ul class="list-unstyled">
+  <li *ngFor="let mail of mails | filterSearch: search">
+    <mail [mail]= 'mail'></mail>
+  </li>
+</ul>

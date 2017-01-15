@@ -1,7 +1,7 @@
 <ul class="inbox-sections list-unstyled">
-    <li (click)="onItemNav(1)">Inbox</li>
-    <li (click)="onItemNav(2)">Sent Mail</li>
-    <li (click)="onItemNav(3)">Drafts</li>
+    <li (click)="onItemNav(1)" routerLink="">Inbox</li>
+    <li (click)="onItemNav(2)" routerLink="">Sent Mail</li>
+    <li (click)="onItemNav(3)" routerLink="">Drafts</li>
 </ul>
 
 <mailbox-list (onMailboxSelected)="onMailboxSelected($event)"></mailbox-list>

@@ -12,18 +12,42 @@ import { AddMailboxComponent } from './inbox/sidebarNav/mailboxList/addMailbox/a
 import { DropDownComponent } from './dropDown/drop-down.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { ComposeComponent } from './inbox/compose/compose.component';
-import { MailComponent } from './inbox/mail/mail.component';
+import { ListComponent } from './inbox/list/list.component';
+import { MailComponent } from './inbox/list/mail/mail.component';
 import { OpenedComponent } from './inbox/opened/opened.component';
 
-import { SearchPipe } from './inbox/search.pipe';
+import { SearchPipe } from './inbox/list/search.pipe';
 import { TypeaheadDirective } from './inbox/compose/typeahead/typeahead.directive';
+import { MailsService } from './inbox/mails.service';
+import { MailboxService } from './inbox/mailbox.service';
+// import { AuthGuardService } from './auth-guard.service';
 
 const routes = [
-  {path: '', component: MailComponent,
+  {
+    path: '', component: InboxComponent,
     children: [
-      { path: 'mail/:id', component: OpenedComponent }
+      {
+        path: '',
+        component: ListComponent
+      },
+      // {
+      //   path: 'inbox',
+      //   component: ListComponent
+      // },
+      // {
+      //   path: 'sent',
+      //   component: ListComponent
+      // },
+      // {
+      //   path: 'drafts',
+      //   component: ListComponent
+      // },
+      {
+        path: 'mail/:id',
+        component: OpenedComponent
+      }
     ]
-  },
+  }
 ];
 
 @NgModule({
@@ -35,6 +59,7 @@ const routes = [
     DropDownComponent,
     InboxComponent,
     ComposeComponent,
+    ListComponent,
     MailComponent,
     OpenedComponent,
     SearchPipe,
@@ -45,9 +70,9 @@ const routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(routes, {useHash: true})
+    RouterModule.forRoot(routes, { useHash: true })
   ],
-  providers: [],
+  providers: [MailsService, MailboxService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
