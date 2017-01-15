@@ -1,0 +1,38 @@
+<div class="editUser">
+    <input routerLink="/users" 
+           value="back to user-list" 
+           class="btn btn-primary">
+    <h2>Edit</h2>
+    <form novalidate>
+        <div class="form-group">
+            <input name="fullName" placeholder="fullName" required>
+        </div>
+
+        <div class="form-group">
+            <input name="email" placeholder="email" required>
+        </div>
+
+        <div class="form-group">
+            <input name="avatar" placeholder="name.jpg" required>
+        </div>
+
+        <div class="form-group">
+            <input name="date" type="date" placeholder="birthdate" required>
+        </div>
+
+        <div class="form-group">
+            <select name="gender" required>
+                <option value="M">мужской</option>
+                <option value="F">женский</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input name="address" placeholder="address" required>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="edit" class="btn btn-primary">
+        </div>
+    </form>
+</div>

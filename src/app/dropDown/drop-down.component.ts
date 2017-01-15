@@ -8,11 +8,20 @@ export class DropDownComponent {
     list: Object[] = [
         {
             name: 'Gmail',
-            href: ''
+            href: '/inbox'
+        },
+        {
+            name: 'Users',
+            href: '/users'
+        },
+        {
+            name: 'Add new user',
+            href: '/addUser'
         },
         {
             name: 'Add mailbox',
-            href: ''
+            href: '/addMailbox'
         }
     ];
 }
+

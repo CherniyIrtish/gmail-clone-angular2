@@ -1,14 +1,14 @@
-<div class="email-item row unread" routerLink="mail/{{mail._id}}">
+<div class="email-item row unread">
   <div class="check" col-sm-1>
     <input type="checkbox" class="mail-select">
   </div>
-  <div class="people col-sm-2" (click)="onMail(mail._id)">
+  <div class="people col-sm-2" routerLink="/mail/{{mail._id}}">
     <span class="people-names">
             {{mail.to}}
         </span>
   </div>
 
-  <div class="message col-sm-7" (click)="onMail(mail._id)">
+  <div class="message col-sm-7" routerLink="/mail/{{mail._id}}">
     <div class="clipper">
       <h3>{{mail.subject}}</h3>
       -

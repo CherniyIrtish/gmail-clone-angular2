@@ -4,7 +4,7 @@
         <span class="caret"></span>
     </span>
     <ul class="dropdown-menu">
-        <li *ngFor = "let item of list">
+        <li *ngFor = "let item of list" routerLink="{{item.href}}">
             {{item.name}}
         </li>
     </ul>

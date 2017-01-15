@@ -5,11 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(hotels: any[], search: string): any {
+  transform(items: any[], search: string): any {
     return search ?
-      hotels.filter(hotel => ~JSON.stringify(hotel).toLowerCase()
+      items.filter(item => ~JSON.stringify(item).toLowerCase()
         .indexOf(search.toLowerCase()))
-      : hotels;
+      : items;
   }
 
 }
